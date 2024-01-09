@@ -1,6 +1,6 @@
 Package: read.gb
 Title: Open GenBank Files
-Version: 2.2
+Version: 2.2.1
 Authors@R: 
     person(given = "Robin",
            family = "Mercier",
