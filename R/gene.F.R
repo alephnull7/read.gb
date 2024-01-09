@@ -43,9 +43,9 @@ function(Feat, SQuali, SQualiN){
 
     }
   }
-  gene <- apply(gene, 2, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
-  gene <- apply(gene, 2, function(x){gsub("\"", "", x, fixed = T)})
-  gene <- apply(gene, 2, function(x){gsub("\\", "", x, fixed = T)})
-  gene <- apply(gene, 2, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]|, $", "", x, perl = TRUE)})
+  gene <- lapply(gene, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
+  gene <- lapply(gene, function(x){gsub("\"", "", x, fixed = T)})
+  gene <- lapply(gene, function(x){gsub("\\", "", x, fixed = T)})
+  gene <- lapply(gene, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]|, $", "", x, perl = TRUE)})
   return(gene)
 }

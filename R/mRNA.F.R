@@ -26,9 +26,9 @@ function(Feat, SQuali, SQualiN){
       }
     }
   }
-  mRNA <- apply(mRNA, 2, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
-  mRNA <- apply(mRNA, 2, function(x){gsub("\"", "", x, fixed = T)})
-  mRNA <- apply(mRNA, 2, function(x){gsub("\\", "", x, fixed = T)})
-  mRNA <- apply(mRNA, 2, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
+  mRNA <- lapply(mRNA, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
+  mRNA <- lapply(mRNA, function(x){gsub("\"", "", x, fixed = T)})
+  mRNA <- lapply(mRNA, function(x){gsub("\\", "", x, fixed = T)})
+  mRNA <- lapply(mRNA, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
   return(mRNA)
 }

@@ -26,9 +26,9 @@ function(Feat, SQuali, SQualiN){
       }
     }
   }
-  rep_origin <- apply(rep_origin, 2, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
-  rep_origin <- apply(rep_origin, 2, function(x){gsub("\"", "", x, fixed = T)})
-  rep_origin <- apply(rep_origin, 2, function(x){gsub("\\", "", x, fixed = T)})
-  rep_origin <- apply(rep_origin, 2, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
+  rep_origin <- lapply(rep_origin, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
+  rep_origin <- lapply(rep_origin, function(x){gsub("\"", "", x, fixed = T)})
+  rep_origin <- lapply(rep_origin, function(x){gsub("\\", "", x, fixed = T)})
+  rep_origin <- lapply(rep_origin, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
   return(rep_origin)
 }

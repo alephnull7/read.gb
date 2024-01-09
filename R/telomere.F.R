@@ -26,9 +26,9 @@ function(Feat, SQuali, SQualiN){
       }
     }
   }
-  telomere <- apply(telomere, 2, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
-  telomere <- apply(telomere, 2, function(x){gsub("\"", "", x, fixed = T)})
-  telomere <- apply(telomere, 2, function(x){gsub("\\", "", x, fixed = T)})
-  telomere <- apply(telomere, 2, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
+  telomere <- lapply(telomere, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
+  telomere <- lapply(telomere, function(x){gsub("\"", "", x, fixed = T)})
+  telomere <- lapply(telomere, function(x){gsub("\\", "", x, fixed = T)})
+  telomere <- lapply(telomere, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
   return(telomere)
 }

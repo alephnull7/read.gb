@@ -26,9 +26,9 @@ function(Feat, SQuali, SQualiN){
       }
     }
   }
-  intron <- apply(intron, 2, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
-  intron <- apply(intron, 2, function(x){gsub("\"", "", x, fixed = T)})
-  intron <- apply(intron, 2, function(x){gsub("\\", "", x, fixed = T)})
-  intron <- apply(intron, 2, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
+  intron <- lapply(intron, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
+  intron <- lapply(intron, function(x){gsub("\"", "", x, fixed = T)})
+  intron <- lapply(intron, function(x){gsub("\\", "", x, fixed = T)})
+  intron <- lapply(intron, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
   return(intron)
 }

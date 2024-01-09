@@ -26,9 +26,9 @@ function(Feat, SQuali, SQualiN){
       }
     }
   }
-  misc_structure <- apply(misc_structure, 2, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
-  misc_structure <- apply(misc_structure, 2, function(x){gsub("\"", "", x, fixed = T)})
-  misc_structure <- apply(misc_structure, 2, function(x){gsub("\\", "", x, fixed = T)})
-  misc_structure <- apply(misc_structure, 2, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
+  misc_structure <- lapply(misc_structure, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
+  misc_structure <- lapply(misc_structure, function(x){gsub("\"", "", x, fixed = T)})
+  misc_structure <- lapply(misc_structure, function(x){gsub("\\", "", x, fixed = T)})
+  misc_structure <- lapply(misc_structure, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
   return(misc_structure)
 }

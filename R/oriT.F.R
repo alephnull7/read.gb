@@ -26,9 +26,9 @@ function(Feat, SQuali, SQualiN){
       }
     }
   }
-  oriT <- apply(oriT, 2, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
-  oriT <- apply(oriT, 2, function(x){gsub("\"", "", x, fixed = T)})
-  oriT <- apply(oriT, 2, function(x){gsub("\\", "", x, fixed = T)})
-  oriT <- apply(oriT, 2, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
+  oriT <- lapply(oriT, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
+  oriT <- lapply(oriT, function(x){gsub("\"", "", x, fixed = T)})
+  oriT <- lapply(oriT, function(x){gsub("\\", "", x, fixed = T)})
+  oriT <- lapply(oriT, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
   return(oriT)
 }

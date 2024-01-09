@@ -26,9 +26,9 @@ function(Feat, SQuali, SQualiN){
       }
     }
   }
-  precursor_RNA <- apply(precursor_RNA, 2, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
-  precursor_RNA <- apply(precursor_RNA, 2, function(x){gsub("\"", "", x, fixed = T)})
-  precursor_RNA <- apply(precursor_RNA, 2, function(x){gsub("\\", "", x, fixed = T)})
-  precursor_RNA <- apply(precursor_RNA, 2, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
+  precursor_RNA <- lapply(precursor_RNA, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
+  precursor_RNA <- lapply(precursor_RNA, function(x){gsub("\"", "", x, fixed = T)})
+  precursor_RNA <- lapply(precursor_RNA, function(x){gsub("\\", "", x, fixed = T)})
+  precursor_RNA <- lapply(precursor_RNA, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
   return(precursor_RNA)
 }

@@ -26,9 +26,9 @@ function(Feat, SQuali, SQualiN){
       }
     }
   }
-  gap <- apply(gap, 2, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
-  gap <- apply(gap, 2, function(x){gsub("\"", "", x, fixed = T)})
-  gap <- apply(gap, 2, function(x){gsub("\\", "", x, fixed = T)})
-  gap <- apply(gap, 2, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
+  gap <- lapply(gap, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
+  gap <- lapply(gap, function(x){gsub("\"", "", x, fixed = T)})
+  gap <- lapply(gap, function(x){gsub("\\", "", x, fixed = T)})
+  gap <- lapply(gap, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
   return(gap)
 }

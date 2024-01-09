@@ -26,9 +26,9 @@ function(Feat, SQuali, SQualiN){
       }
     }
   }
-  misc_difference <- apply(misc_difference, 2, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
-  misc_difference <- apply(misc_difference, 2, function(x){gsub("\"", "", x, fixed = T)})
-  misc_difference <- apply(misc_difference, 2, function(x){gsub("\\", "", x, fixed = T)})
-  misc_difference <- apply(misc_difference, 2, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
+  misc_difference <- lapply(misc_difference, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
+  misc_difference <- lapply(misc_difference, function(x){gsub("\"", "", x, fixed = T)})
+  misc_difference <- lapply(misc_difference, function(x){gsub("\\", "", x, fixed = T)})
+  misc_difference <- lapply(misc_difference, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
   return(misc_difference)
 }

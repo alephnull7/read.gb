@@ -26,9 +26,9 @@ function(Feat, SQuali, SQualiN){
       }
     }
   }
-  propeptide <- apply(propeptide, 2, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
-  propeptide <- apply(propeptide, 2, function(x){gsub("\"", "", x, fixed = T)})
-  propeptide <- apply(propeptide, 2, function(x){gsub("\\", "", x, fixed = T)})
-  propeptide <- apply(propeptide, 2, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
+  propeptide <- lapply(propeptide, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
+  propeptide <- lapply(propeptide, function(x){gsub("\"", "", x, fixed = T)})
+  propeptide <- lapply(propeptide, function(x){gsub("\\", "", x, fixed = T)})
+  propeptide <- lapply(propeptide, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
   return(propeptide)
 }

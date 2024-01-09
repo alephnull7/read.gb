@@ -26,9 +26,9 @@ function(Feat, SQuali, SQualiN){
       }
     }
   }
-  STS <- apply(STS, 2, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
-  STS <- apply(STS, 2, function(x){gsub("\"", "", x, fixed = T)})
-  STS <- apply(STS, 2, function(x){gsub("\\", "", x, fixed = T)})
-  STS <- apply(STS, 2, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
+  STS <- lapply(STS, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
+  STS <- lapply(STS, function(x){gsub("\"", "", x, fixed = T)})
+  STS <- lapply(STS, function(x){gsub("\\", "", x, fixed = T)})
+  STS <- lapply(STS, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
   return(STS)
 }

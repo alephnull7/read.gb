@@ -26,9 +26,9 @@ function(Feat, SQuali, SQualiN){
       }
     }
   }
-  polyA_site <- apply(polyA_site, 2, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
-  polyA_site <- apply(polyA_site, 2, function(x){gsub("\"", "", x, fixed = T)})
-  polyA_site <- apply(polyA_site, 2, function(x){gsub("\\", "", x, fixed = T)})
-  polyA_site <- apply(polyA_site, 2, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
+  polyA_site <- lapply(polyA_site, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
+  polyA_site <- lapply(polyA_site, function(x){gsub("\"", "", x, fixed = T)})
+  polyA_site <- lapply(polyA_site, function(x){gsub("\\", "", x, fixed = T)})
+  polyA_site <- lapply(polyA_site, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
   return(polyA_site)
 }

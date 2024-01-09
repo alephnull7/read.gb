@@ -41,9 +41,9 @@ function(Feat, SQuali, SQualiN){
       source[length(source[,1]),2] <- gsub("\\\"", "", source[length(source[,1]),2], perl = TRUE)
     }
   }
-  source <- apply(source, 2, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
-  source <- apply(source, 2, function(x){gsub("\"", "", x, fixed = T)})
-  source <- apply(source, 2, function(x){gsub("\\", "", x, fixed = T)})
-  source <- apply(source, 2, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
+  source <- lapply(source, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
+  source <- lapply(source, function(x){gsub("\"", "", x, fixed = T)})
+  source <- lapply(source, function(x){gsub("\\", "", x, fixed = T)})
+  source <- lapply(source, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
   return(source)
 }

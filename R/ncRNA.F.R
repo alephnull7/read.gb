@@ -26,9 +26,9 @@ function(Feat, SQuali, SQualiN){
       }
     }
   }
-  ncRNA <- apply(ncRNA, 2, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
-  ncRNA <- apply(ncRNA, 2, function(x){gsub("\"", "", x, fixed = T)})
-  ncRNA <- apply(ncRNA, 2, function(x){gsub("\\", "", x, fixed = T)})
-  ncRNA <- apply(ncRNA, 2, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
+  ncRNA <- lapply(ncRNA, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
+  ncRNA <- lapply(ncRNA, function(x){gsub("\"", "", x, fixed = T)})
+  ncRNA <- lapply(ncRNA, function(x){gsub("\\", "", x, fixed = T)})
+  ncRNA <- lapply(ncRNA, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
   return(ncRNA)
 }

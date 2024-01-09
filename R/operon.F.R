@@ -26,9 +26,9 @@ function(Feat, SQuali, SQualiN){
       }
     }
   }
-  operon <- apply(operon, 2, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
-  operon <- apply(operon, 2, function(x){gsub("\"", "", x, fixed = T)})
-  operon <- apply(operon, 2, function(x){gsub("\\", "", x, fixed = T)})
-  operon <- apply(operon, 2, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
+  operon <- lapply(operon, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
+  operon <- lapply(operon, function(x){gsub("\"", "", x, fixed = T)})
+  operon <- lapply(operon, function(x){gsub("\\", "", x, fixed = T)})
+  operon <- lapply(operon, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
   return(operon)
 }

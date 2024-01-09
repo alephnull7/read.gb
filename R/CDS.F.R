@@ -26,9 +26,9 @@ function(Feat, SQuali, SQualiN){
       }
     }
   }
-  CDS <- apply(CDS, 2, function(x){gsub(" {2,}", "", x, perl = TRUE)})
-  CDS <- apply(CDS, 2, function(x){gsub("\"", "", x, fixed = T)})
-  CDS <- apply(CDS, 2, function(x){gsub("\\", "", x, fixed = T)})
-  CDS <- apply(CDS, 2, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
+  CDS <- lapply(CDS, function(x){gsub(" {2,}", "", x, perl = TRUE)})
+  CDS <- lapply(CDS, function(x){gsub("\"", "", x, fixed = T)})
+  CDS <- lapply(CDS, function(x){gsub("\\", "", x, fixed = T)})
+  CDS <- lapply(CDS, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
   return(CDS)
 }

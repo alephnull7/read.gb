@@ -26,9 +26,9 @@ function(Feat, SQuali, SQualiN){
       }
     }
   }
-  unsure <- apply(unsure, 2, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
-  unsure <- apply(unsure, 2, function(x){gsub("\"", "", x, fixed = T)})
-  unsure <- apply(unsure, 2, function(x){gsub("\\", "", x, fixed = T)})
-  unsure <- apply(unsure, 2, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
+  unsure <- lapply(unsure, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
+  unsure <- lapply(unsure, function(x){gsub("\"", "", x, fixed = T)})
+  unsure <- lapply(unsure, function(x){gsub("\\", "", x, fixed = T)})
+  unsure <- lapply(unsure, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
   return(unsure)
 }

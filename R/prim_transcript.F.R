@@ -26,9 +26,9 @@ function(Feat, SQuali, SQualiN){
       }
     }
   }
-  prim_transcript <- apply(prim_transcript, 2, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
-  prim_transcript <- apply(prim_transcript, 2, function(x){gsub("\"", "", x, fixed = T)})
-  prim_transcript <- apply(prim_transcript, 2, function(x){gsub("\\", "", x, fixed = T)})
-  prim_transcript <- apply(prim_transcript, 2, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
+  prim_transcript <- lapply(prim_transcript, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
+  prim_transcript <- lapply(prim_transcript, function(x){gsub("\"", "", x, fixed = T)})
+  prim_transcript <- lapply(prim_transcript, function(x){gsub("\\", "", x, fixed = T)})
+  prim_transcript <- lapply(prim_transcript, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
   return(prim_transcript)
 }

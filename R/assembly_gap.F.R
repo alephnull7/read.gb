@@ -26,9 +26,9 @@ function(Feat, SQuali, SQualiN){
       }
     }
   }
-  assembly_gap <- apply(assembly_gap, 2, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
-  assembly_gap <- apply(assembly_gap, 2, function(x){gsub("\"", "", x, fixed = T)})
-  assembly_gap <- apply(assembly_gap, 2, function(x){gsub("\\", "", x, fixed = T)})
-  assembly_gap <- apply(assembly_gap, 2, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
+  assembly_gap <- lapply(assembly_gap, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
+  assembly_gap <- lapply(assembly_gap, function(x){gsub("\"", "", x, fixed = T)})
+  assembly_gap <- lapply(assembly_gap, function(x){gsub("\\", "", x, fixed = T)})
+  assembly_gap <- lapply(assembly_gap, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
   return(assembly_gap)
 }

@@ -26,9 +26,9 @@ function(Feat, SQuali, SQualiN){
       }
     }
   }
-  misc_binding <- apply(misc_binding, 2, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
-  misc_binding <- apply(misc_binding, 2, function(x){gsub("\"", "", x, fixed = T)})
-  misc_binding <- apply(misc_binding, 2, function(x){gsub("\\", "", x, fixed = T)})
-  misc_binding <- apply(misc_binding, 2, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
+  misc_binding <- lapply(misc_binding, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
+  misc_binding <- lapply(misc_binding, function(x){gsub("\"", "", x, fixed = T)})
+  misc_binding <- lapply(misc_binding, function(x){gsub("\\", "", x, fixed = T)})
+  misc_binding <- lapply(misc_binding, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
   return(misc_binding)
 }

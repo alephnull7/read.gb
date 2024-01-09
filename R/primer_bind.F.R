@@ -37,9 +37,9 @@ function(Feat, SQuali, SQualiN){
       primer_bind[length(primer_bind[,1]),2] <- gsub("\\\"", "", primer_bind[length(primer_bind[,1]),2], perl = TRUE)
     }
   }
-  primer_bind <- apply(primer_bind, 2, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
-  primer_bind <- apply(primer_bind, 2, function(x){gsub("\"", "", x, fixed = T)})
-  primer_bind <- apply(primer_bind, 2, function(x){gsub("\\", "", x, fixed = T)})
-  primer_bind <- apply(primer_bind, 2, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
+  primer_bind <- lapply(primer_bind, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
+  primer_bind <- lapply(primer_bind, function(x){gsub("\"", "", x, fixed = T)})
+  primer_bind <- lapply(primer_bind, function(x){gsub("\\", "", x, fixed = T)})
+  primer_bind <- lapply(primer_bind, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
   return(primer_bind)
 }

@@ -26,9 +26,9 @@ function(Feat, SQuali, SQualiN){
       }
     }
   }
-  J_segment <- apply(J_segment, 2, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
-  J_segment <- apply(J_segment, 2, function(x){gsub("\"", "", x, fixed = T)})
-  J_segment <- apply(J_segment, 2, function(x){gsub("\\", "", x, fixed = T)})
-  J_segment <- apply(J_segment, 2, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
+  J_segment <- lapply(J_segment, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
+  J_segment <- lapply(J_segment, function(x){gsub("\"", "", x, fixed = T)})
+  J_segment <- lapply(J_segment, function(x){gsub("\\", "", x, fixed = T)})
+  J_segment <- lapply(J_segment, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
   return(J_segment)
 }

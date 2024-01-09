@@ -26,9 +26,9 @@ function(Feat, SQuali, SQualiN){
       }
     }
   }
-  transit_peptide <- apply(transit_peptide, 2, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
-  transit_peptide <- apply(transit_peptide, 2, function(x){gsub("\"", "", x, fixed = T)})
-  transit_peptide <- apply(transit_peptide, 2, function(x){gsub("\\", "", x, fixed = T)})
-  transit_peptide <- apply(transit_peptide, 2, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
+  transit_peptide <- lapply(transit_peptide, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
+  transit_peptide <- lapply(transit_peptide, function(x){gsub("\"", "", x, fixed = T)})
+  transit_peptide <- lapply(transit_peptide, function(x){gsub("\\", "", x, fixed = T)})
+  transit_peptide <- lapply(transit_peptide, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
   return(transit_peptide)
 }

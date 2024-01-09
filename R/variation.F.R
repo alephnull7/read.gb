@@ -26,9 +26,9 @@ function(Feat, SQuali, SQualiN){
       }
     }
   }
-  variation <- apply(variation, 2, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
-  variation <- apply(variation, 2, function(x){gsub("\"", "", x, fixed = T)})
-  variation <- apply(variation, 2, function(x){gsub("\\", "", x, fixed = T)})
-  variation <- apply(variation, 2, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
+  variation <- lapply(variation, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
+  variation <- lapply(variation, function(x){gsub("\"", "", x, fixed = T)})
+  variation <- lapply(variation, function(x){gsub("\\", "", x, fixed = T)})
+  variation <- lapply(variation, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
   return(variation)
 }

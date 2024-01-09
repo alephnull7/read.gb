@@ -26,9 +26,9 @@ function(Feat, SQuali, SQualiN){
       }
     }
   }
-  F_UTR <- apply(F_UTR, 2, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
-  F_UTR <- apply(F_UTR, 2, function(x){gsub("\"", "", x, fixed = T)})
-  F_UTR <- apply(F_UTR, 2, function(x){gsub("\\", "", x, fixed = T)})
-  F_UTR <- apply(F_UTR, 2, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
+  F_UTR <- lapply(F_UTR, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
+  F_UTR <- lapply(F_UTR, function(x){gsub("\"", "", x, fixed = T)})
+  F_UTR <- lapply(F_UTR, function(x){gsub("\\", "", x, fixed = T)})
+  F_UTR <- lapply(F_UTR, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
   return(F_UTR)
 }

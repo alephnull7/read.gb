@@ -26,9 +26,9 @@ function(Feat, SQuali, SQualiN){
       }
     }
   }
-  stem_loop <- apply(stem_loop, 2, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
-  stem_loop <- apply(stem_loop, 2, function(x){gsub("\"", "", x, fixed = T)})
-  stem_loop <- apply(stem_loop, 2, function(x){gsub("\\", "", x, fixed = T)})
-  stem_loop <- apply(stem_loop, 2, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
+  stem_loop <- lapply(stem_loop, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
+  stem_loop <- lapply(stem_loop, function(x){gsub("\"", "", x, fixed = T)})
+  stem_loop <- lapply(stem_loop, function(x){gsub("\\", "", x, fixed = T)})
+  stem_loop <- lapply(stem_loop, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
   return(stem_loop)
 }

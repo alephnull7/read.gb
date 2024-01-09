@@ -26,9 +26,9 @@ function(Feat, SQuali, SQualiN){
       }
     }
   }
-  regulatory <- apply(regulatory, 2, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
-  regulatory <- apply(regulatory, 2, function(x){gsub("\"", "", x, fixed = T)})
-  regulatory <- apply(regulatory, 2, function(x){gsub("\\", "", x, fixed = T)})
-  regulatory <- apply(regulatory, 2, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
+  regulatory <- lapply(regulatory, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
+  regulatory <- lapply(regulatory, function(x){gsub("\"", "", x, fixed = T)})
+  regulatory <- lapply(regulatory, function(x){gsub("\\", "", x, fixed = T)})
+  regulatory <- lapply(regulatory, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
   return(regulatory)
 }

@@ -26,9 +26,9 @@ function(Feat, SQuali, SQualiN){
       }
     }
   }
-  V_region <- apply(V_region, 2, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
-  V_region <- apply(V_region, 2, function(x){gsub("\"", "", x, fixed = T)})
-  V_region <- apply(V_region, 2, function(x){gsub("\\", "", x, fixed = T)})
-  V_region <- apply(V_region, 2, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
+  V_region <- lapply(V_region, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
+  V_region <- lapply(V_region, function(x){gsub("\"", "", x, fixed = T)})
+  V_region <- lapply(V_region, function(x){gsub("\\", "", x, fixed = T)})
+  V_region <- lapply(V_region, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
   return(V_region)
 }

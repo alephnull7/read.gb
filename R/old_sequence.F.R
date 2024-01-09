@@ -26,9 +26,9 @@ function(Feat, SQuali, SQualiN){
       }
     }
   }
-  old_sequence <- apply(old_sequence, 2, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
-  old_sequence <- apply(old_sequence, 2, function(x){gsub("\"", "", x, fixed = T)})
-  old_sequence <- apply(old_sequence, 2, function(x){gsub("\\", "", x, fixed = T)})
-  old_sequence <- apply(old_sequence, 2, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
+  old_sequence <- lapply(old_sequence, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
+  old_sequence <- lapply(old_sequence, function(x){gsub("\"", "", x, fixed = T)})
+  old_sequence <- lapply(old_sequence, function(x){gsub("\\", "", x, fixed = T)})
+  old_sequence <- lapply(old_sequence, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
   return(old_sequence)
 }

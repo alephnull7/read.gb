@@ -26,9 +26,9 @@ function(Feat, SQuali, SQualiN){
       }
     }
   }
-  mobile_element <- apply(mobile_element, 2, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
-  mobile_element <- apply(mobile_element, 2, function(x){gsub("\"", "", x, fixed = T)})
-  mobile_element <- apply(mobile_element, 2, function(x){gsub("\\", "", x, fixed = T)})
-  mobile_element <- apply(mobile_element, 2, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
+  mobile_element <- lapply(mobile_element, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
+  mobile_element <- lapply(mobile_element, function(x){gsub("\"", "", x, fixed = T)})
+  mobile_element <- lapply(mobile_element, function(x){gsub("\\", "", x, fixed = T)})
+  mobile_element <- lapply(mobile_element, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
   return(mobile_element)
 }

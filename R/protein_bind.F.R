@@ -26,9 +26,9 @@ function(Feat, SQuali, SQualiN){
       }
     }
   }
-  protein_bind <- apply(protein_bind, 2, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
-  protein_bind <- apply(protein_bind, 2, function(x){gsub("\"", "", x, fixed = T)})
-  protein_bind <- apply(protein_bind, 2, function(x){gsub("\\", "", x, fixed = T)})
-  protein_bind <- apply(protein_bind, 2, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
+  protein_bind <- lapply(protein_bind, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
+  protein_bind <- lapply(protein_bind, function(x){gsub("\"", "", x, fixed = T)})
+  protein_bind <- lapply(protein_bind, function(x){gsub("\\", "", x, fixed = T)})
+  protein_bind <- lapply(protein_bind, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
   return(protein_bind)
 }

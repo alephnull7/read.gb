@@ -26,9 +26,9 @@ function(Feat, SQuali, SQualiN){
       }
     }
   }
-  mat_peptide <- apply(mat_peptide, 2, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
-  mat_peptide <- apply(mat_peptide, 2, function(x){gsub("\"", "", x, fixed = T)})
-  mat_peptide <- apply(mat_peptide, 2, function(x){gsub("\\", "", x, fixed = T)})
-  mat_peptide <- apply(mat_peptide, 2, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
+  mat_peptide <- lapply(mat_peptide, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
+  mat_peptide <- lapply(mat_peptide, function(x){gsub("\"", "", x, fixed = T)})
+  mat_peptide <- lapply(mat_peptide, function(x){gsub("\\", "", x, fixed = T)})
+  mat_peptide <- lapply(mat_peptide, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
   return(mat_peptide)
 }

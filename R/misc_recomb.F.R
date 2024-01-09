@@ -26,9 +26,9 @@ function(Feat, SQuali, SQualiN){
       }
     }
   }
-  misc_recomb <- apply(misc_recomb, 2, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
-  misc_recomb <- apply(misc_recomb, 2, function(x){gsub("\"", "", x, fixed = T)})
-  misc_recomb <- apply(misc_recomb, 2, function(x){gsub("\\", "", x, fixed = T)})
-  misc_recomb <- apply(misc_recomb, 2, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
+  misc_recomb <- lapply(misc_recomb, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
+  misc_recomb <- lapply(misc_recomb, function(x){gsub("\"", "", x, fixed = T)})
+  misc_recomb <- lapply(misc_recomb, function(x){gsub("\\", "", x, fixed = T)})
+  misc_recomb <- lapply(misc_recomb, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
   return(misc_recomb)
 }

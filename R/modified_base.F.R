@@ -26,9 +26,9 @@ function(Feat, SQuali, SQualiN){
       }
     }
   }
-  modified_base <- apply(modified_base, 2, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
-  modified_base <- apply(modified_base, 2, function(x){gsub("\"", "", x, fixed = T)})
-  modified_base <- apply(modified_base, 2, function(x){gsub("\\", "", x, fixed = T)})
-  modified_base <- apply(modified_base, 2, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
+  modified_base <- lapply(modified_base, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
+  modified_base <- lapply(modified_base, function(x){gsub("\"", "", x, fixed = T)})
+  modified_base <- lapply(modified_base, function(x){gsub("\\", "", x, fixed = T)})
+  modified_base <- lapply(modified_base, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
   return(modified_base)
 }

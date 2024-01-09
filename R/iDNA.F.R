@@ -26,9 +26,9 @@ function(Feat, SQuali, SQualiN){
       }
     }
   }
-  iDNA <- apply(iDNA, 2, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
-  iDNA <- apply(iDNA, 2, function(x){gsub("\"", "", x, fixed = T)})
-  iDNA <- apply(iDNA, 2, function(x){gsub("\\", "", x, fixed = T)})
-  iDNA <- apply(iDNA, 2, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
+  iDNA <- lapply(iDNA, function(x){gsub(" {2,}", " ", x, perl = TRUE)})
+  iDNA <- lapply(iDNA, function(x){gsub("\"", "", x, fixed = T)})
+  iDNA <- lapply(iDNA, function(x){gsub("\\", "", x, fixed = T)})
+  iDNA <- lapply(iDNA, function(x){gsub("[^[:alnum:][:space:][]'.,:_<>()-]", "", x, perl = TRUE)})
   return(iDNA)
 }
