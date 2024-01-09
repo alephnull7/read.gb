@@ -77,7 +77,7 @@ function(Temp){
     COMMENT <- substr(Temp, Cb+7, Ce-1)
     COMMENT <- gsub("\r", "", COMMENT)
     COMMENT <- as.data.frame(strsplit(COMMENT, split = "\\n", perl = T)[[1]], stringsAsFactors = F)
-    COMMENT <- lapply(COMMENT, function(x){gsub(" {2,}", " ", x, perl = TRUE); gsub("^ *", "", x, perl = TRUE)})
+    COMMENT <- apply(COMMENT, 1, function(x){gsub(" {2,}", " ", x, perl = TRUE); gsub("^ *", "", x, perl = TRUE)})
   }
   
   ## Position of FEATURES:

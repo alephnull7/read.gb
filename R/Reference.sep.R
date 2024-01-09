@@ -48,8 +48,8 @@ function(y){
           reference <- rbind(reference, c("PUBMED",  gsub(".*PUBMED +([^.]+)\"*", "\\1", Ref[j])))
         }
       }
-      reference <- lapply(reference, function(x){gsub("\\s+", " ", x, perl = TRUE)})
-      reference <- lapply(reference, function(x){gsub("[^[:alnum:][:space:].:;',@()-]", "", x, perl = TRUE)})
+      reference <- apply(reference, 2, function(x){gsub("\\s+", " ", x, perl = TRUE)})
+      reference <- apply(reference, 2, function(x){gsub("[^[:alnum:][:space:].:;',@()-]", "", x, perl = TRUE)})
       Reference[[length(Reference)+1]] <- data.frame(reference, stringsAsFactors = F)
       names(Reference)[[length(Reference)]] <- gsub("(.*?)(\\s.*)", "\\1", reference[1,2])
     }
